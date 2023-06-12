@@ -1,0 +1,51 @@
+export CUDA_VISIBLE_DEVICES=0
+
+python -u run.py \
+  --task_name anomaly_detection \
+  --is_training 1 \
+  --root_path ./dataset/SWaT \
+  --model_id SWAT \
+  --model hybridTTNet \
+  --data SWAT \
+  --features M \
+  --seq_len 100 \
+  --pred_len 0 \
+  --d_model 32 \
+  --d_ff 32 \
+  --dropout 0.1 \
+  --d_model_2 192 \
+  --d_ff_2 128 \
+  --dropout_2 0.05 \
+  --n_heads_2 24 \
+  --e_layers 2 \
+  --enc_in 51 \
+  --c_out 51 \
+  --top_k 3 \
+  --anomaly_ratio 1 \
+  --batch_size 128 \
+  --train_epochs 5
+
+python -u run.py \
+  --task_name anomaly_detection \
+  --is_training 1 \
+  --root_path ./dataset/SWaT \
+  --model_id SWAT \
+  --model hybridTTNet \
+  --data SWAT \
+  --features M \
+  --seq_len 100 \
+  --pred_len 0 \
+  --d_model 32 \
+  --d_ff 32 \
+  --dropout 0.1 \
+  --d_model_2 256 \
+  --d_ff_2 128 \
+  --dropout_2 0.05 \
+  --n_heads_2 32 \
+  --e_layers 2 \
+  --enc_in 51 \
+  --c_out 51 \
+  --top_k 3 \
+  --anomaly_ratio 1 \
+  --batch_size 128 \
+  --train_epochs 5
